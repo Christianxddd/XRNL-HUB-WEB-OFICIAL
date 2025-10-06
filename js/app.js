@@ -188,8 +188,8 @@ document.getElementById('btn-import').addEventListener('click', ()=>{ alert('Usa
 
 /* Links placeholders */
 document.getElementById('github-link').addEventListener('click', ()=>window.open('https://github.com/tuusuario/loadring','_blank'));
-document.getElementById('tiktok-link').addEventListener('click', ()=>window.open('https://tiktok.com/@your_tiktok','_blank'));
-document.getElementById('instagram-link').addEventListener('click', ()=>window.open('https://instagram.com/your_insta','_blank'));
+document.getElementById('tiktok-link').addEventListener('click', ()=>window.open('https://www.tiktok.com/@christ_sebast_7d'));
+document.getElementById('instagram-link').addEventListener('click', ()=>window.open('https://www.instagram.com/roseb_astian/'));
 
 /* Other small helpers */
 document.getElementById('changelog-copy').addEventListener('click', ()=>{ navigator.clipboard?.writeText('Changelog: 2025-10-05 — SPA mejorada con repositorio de mensajes y navegación por pestañas.').then(()=>alert('Changelog copiado')); });
