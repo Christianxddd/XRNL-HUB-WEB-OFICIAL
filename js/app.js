@@ -1,0 +1,1 @@
+console.log('LOADRING SPA iniciada');
