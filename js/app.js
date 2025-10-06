@@ -190,6 +190,7 @@ document.getElementById('btn-import').addEventListener('click', ()=>{ alert('Usa
 document.getElementById('github-link').addEventListener('click', ()=>window.open('https://github.com/tuusuario/loadring','_blank'));
 document.getElementById('tiktok-link').addEventListener('click', ()=>window.open('https://www.tiktok.com/@christ_sebast_7d'));
 document.getElementById('instagram-link').addEventListener('click', ()=>window.open('https://www.instagram.com/roseb_astian/'));
+document.getElementById('exploits-web').addEventListener('click', ()=>window.open('https://iamsinosk.neocities.org/portafolio_roblox_seguro'));
 
 /* Other small helpers */
 document.getElementById('changelog-copy').addEventListener('click', ()=>{ navigator.clipboard?.writeText('Changelog: 2025-10-05 — SPA mejorada con repositorio de mensajes y navegación por pestañas.').then(()=>alert('Changelog copiado')); });
