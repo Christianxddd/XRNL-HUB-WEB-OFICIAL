@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LOADRING — Repositorio (SPA)</title>
+<meta name="description" content="LOADRING — Repositorio moderno y futurista de scripts para Roblox. SPA con fondo Matrix y secciones dinámicas." />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="matrix-canvas"></canvas>
+<div id="app-root">
+<canvas id="matrix-canvas"></canvas>
+
+<div class="app" role="application" aria-label="LOADRING App">
+  <div class="header">
+    <div class="brand" style="gap:12px">
+      <div class="logo">LR</div>
+      <div>
+        <h1>LOADRING</h1>
+        <p>Repositorio · Scripts para Roblox · GAME: LOADRING</p>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">
+      <div style="display:flex;gap:8px;align-items:center">
+        <div class="tab active" data-target="home">Inicio</div>
+        <div class="tab" data-target="features">Características</div>
+        <div class="tab" data-target="scripts">Scripts</div>
+        <div class="tab" data-target="demos">Demos</div>
+        <div class="tab" data-target="messages">Mensajes</div>
+        <div class="tab" data-target="docs">Documentación</div>
+        <div class="tab" data-target="download">Descargas</div>
+        <div class="tab" data-target="contact">Contacto</div>
+      </div>
+      <div style="font-size:12px;color:var(--muted)">Single Page App — Navega sin recargar</div>
+    </div>
+  </div>
+
+  <div class="tabs" style="margin-top:8px">
+    <div class="tab active" data-target="home"><span class="dot"></span>&nbsp;Home</div>
+    <div class="tab" data-target="messages"><span class="dot"></span>&nbsp;Mensajes</div>
+    <div class="tab" data-target="scripts"><span class="dot"></span>&nbsp;Scripts</div>
+    <div class="tab" data-target="download"><span class="dot"></span>&nbsp;Repo</div>
+  </div>
+
+  <div class="container" id="spa">
+    <aside class="sidebar" aria-label="Barra lateral">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div style="font-weight:700">LOADRING</div>
+            <div style="font-size:13px;color:var(--muted)">Repo · SPA · v1.1</div>
+          </div>
+          <div>
+            <button class="btn small" id="btn-import">Import</button>
+            <button class="btn small" id="btn-export">Export</button>
+          </div>
+        </div>
+        <div style="margin-top:10px;color:var(--muted)">Accesos rápidos</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+          <button class="btn" data-target="scripts">Ver Scripts</button>
+          <button class="btn" data-target="demos">Abrir Demos</button>
+          <button class="btn" data-target="messages">Mensajes Aleatorios</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">Buscar en repo</div>
+        <div class="search">
+          <input class="input" id="global-search" placeholder="Buscar scripts, demos, mensajes..." />
+          <button class="btn small" id="search-btn">Buscar</button>
+        </div>
+        <div id="search-results" style="margin-top:8px;color:var(--muted)">Resultados aparecerán aquí</div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">Conexiones</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <a class="btn" href="#" id="github-link">GitHub Repo</a>
+          <a class="btn" href="#" id="tiktok-link">TikTok</a>
+          <a class="btn" href="#" id="instagram-link">Instagram</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">Utilidades</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <button class="btn" id="copy-loadstring">Copiar Loadstring</button>
+          <button class="btn" id="random-message">Mostrar Mensaje Aleatorio</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">Acerca</div>
+        <div style="color:var(--muted);font-size:13px">LOADRING — repositorio y hub para scripts de Roblox. SPA diseñado para promocionar y organizar tus scripts.</div>
+      </div>
+
+    </aside>
+
+    <main class="content" id="content-area">
+      <!-- Sections (hidden/shown by tabs) -->
+      <section id="home" class="view active">
+        <div style="display:flex;gap:16px;align-items:flex-start">
+          <div style="flex:1">
+            <h2 style="font-family:Orbitron,monospace">Bienvenido a LOADRING</h2>
+            <p style="color:var(--muted)">Navega por las secciones sin recargar. Este es un Single Page App — haz click en las pestañas para cambiar la vista y ocultar el resto.</p>
+
+            <div style="display:flex;gap:12px;margin-top:12px">
+              <button class="btn primary" data-target="download">Descargar Repo</button>
+              <button class="btn" data-target="scripts">Ver Scripts Populares</button>
+              <button class="btn" id="btn-open-messages" data-target="messages">Abrir Mensajes</button>
+            </div>
+
+            <div style="margin-top:18px" class="card">
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <div>
+                  <div style="font-weight:700">Últimas actualizaciones</div>
+                  <div style="color:var(--muted);font-size:13px">Changelog: 2025-10-05 — SPA mejorada con repositorio de mensajes y navegación por pestañas.</div>
+                </div>
+                <div class="kv">
+                  <button class="btn small" id="changelog-copy">Copiar changelog</button>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:12px" class="card">
+              <h3 class="section-title">Demo interactiva</h3>
+              <p class="muted">Prueba el panel de demo que mostrará ejemplos y botones con funciones comunes (copiar, abrir, reproducir).</p>
+              <div style="display:flex;gap:10px;margin-top:10px">
+                <button class="btn" onclick="alert('Demo: Activar ESP (simulado)')">Activar ESP</button>
+                <button class="btn" onclick="alert('Demo: Teleport (simulado)')">Teleport</button>
+                <button class="btn" onclick="alert('Demo: Speed Toggle (simulado)')">Speed ON/OFF</button>
+              </div>
+            </div>
+
+          </div>
+
+          <div style="width:420px">
+            <div class="card">
+              <div style="display:flex;gap:12px;align-items:center">
+                <div style="width:72px;height:72px;border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-family:Orbitron">LR</div>
+                <div>
+                  <div style="font-weight:700">LOADRING — GAME: LOADRING</div>
+                  <div style="color:var(--muted);font-size:13px">Repo de scripts, demos y herramientas.</div>
+                </div>
+              </div>
+
+              <div style="margin-top:12px">
+                <div style="font-weight:700;margin-bottom:8px">Preview</div>
+                <div style="height:180px;border-radius:8px;overflow:hidden;background:#0000;display:flex;align-items:center;justify-content:center">
+                  <svg width="100%" viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Screenshot">
+                    <defs><linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#001" /><stop offset="1" stop-color="#041124" /></linearGradient></defs>
+                    <rect width="100%" height="100%" rx="8" fill="url(#g2)"/>
+                    <g transform="translate(40,30)" fill="#00ffd1" font-family="Orbitron,monospace" font-weight="700">
+                      <text x="0" y="40" font-size="26">LOADRING</text>
+                      <text x="0" y="80" font-size="14" fill="#9af" opacity="0.9">/repo/loadring · GAME: LOADRING</text>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="card" style="margin-top:12px">
+              <div style="font-weight:700">Quick tips</div>
+              <ul style="color:var(--muted);margin-top:8px">
+                <li>No compartas contraseñas o tokens en el repo.</li>
+                <li>Usa loadstrings desde raw.githubusercontent con precaución.</li>
+                <li>Prueba scripts en servidores privados y respeta reglas.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="features" class="view" style="display:none">
+        <h2 style="font-family:Orbitron,monospace">Características</h2>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px">
+          <div class="card"><h4>Curación</h4><p class="muted">Scripts verificados y categorizados.</p></div>
+          <div class="card"><h4>Instalación</h4><p class="muted">Loadstrings y guías paso a paso.</p></div>
+          <div class="card"><h4>Compatibilidad</h4><p class="muted">Diseñado pensando en loaders y dispositivos.</p></div>
+        </div>
+      </section>
+
+      <section id="scripts" class="view" style="display:none">
+        <h2 style="font-family:Orbitron,monospace">Scripts Destacados</h2>
+        <div style="margin-top:12px" class="card">
+          <div class="scripts-list" id="scripts-list">
+            <!-- Items injected by JS -->
+          </div>
+        </div>
+      </section>
+
+      <section id="demos" class="view" style="display:none">
+        <h2 style="font-family:Orbitron,monospace">Demos Interactivas</h2>
+        <div class="card">
+          <p class="muted">Cada demo incluye código de ejemplo y pasos para probarlo con tu loader.</p>
+          <details style="margin-top:8px" open>
+            <summary style="font-weight:700">Demo: Control de Velocidad y Salto</summary>
+            <pre style="background:#0002;padding:12px;border-radius:8px;color:#cfe">-- Ejemplo (simulado)
+local speed = 50
+local jump = 75
+print("Speed set to", speed, "Jump set to", jump)</pre>
+          </details>
+        </div>
+      </section>
+
+      <section id="messages" class="view" style="display:none">
+        <h2 style="font-family:Orbitron,monospace">Repositorio de Mensajes Aleatorios</h2>
+        <div class="card" style="display:flex;gap:12px">
+          <div style="flex:1">
+            <div style="display:flex;gap:8px;align-items:center">
+              <input class="input" id="new-msg" placeholder="Escribe un mensaje..." />
+              <button class="btn primary" id="add-msg">Agregar</button>
+            </div>
+            <div style="margin-top:10px;color:var(--muted)">Los mensajes se guardan en localStorage; puedes exportarlos o importarlos.</div>
+
+            <div style="margin-top:12px">
+              <input class="input" id="filter-msg" placeholder="Filtrar mensajes..." />
+            </div>
+
+            <div style="margin-top:12px" class="msg-list" id="msg-list">
+              <!-- mensajes inyectados -->
+            </div>
+          </div>
+
+          <div style="width:320px">
+            <div class="card">
+              <div style="font-weight:700">Herramientas</div>
+              <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+                <button class="btn" id="pick-random">Obtener Aleatorio</button>
+                <button class="btn" id="clear-msgs">Borrar todos</button>
+                <button class="btn" id="export-msgs">Exportar JSON</button>
+                <input type="file" id="import-file" style="display:none" />
+                <button class="btn" id="btn-trigger-import">Importar JSON</button>
+                <button class="btn" id="copy-random">Copiar último aleatorio</button>
+              </div>
+              <div style="margin-top:12px;color:var(--muted)"><small>Tip: usa mensajes para mostrar tips, frases, o logs en demos.</small></div>
+            </div>
+            <div class="card" style="margin-top:12px">
+              <div style="font-weight:700">Último Aleatorio</div>
+              <div id="last-random" style="margin-top:8px;color:var(--muted)">— Ninguno —</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="docs" class="view" style="display:none">
+        <h2 style="font-family:Orbitron,monospace">Documentación & Guías</h2>
+        <div class="card">
+          <h4>Cómo añadir un script al repo</h4>
+          <ol style="color:var(--muted)">
+            <li>Haz fork del repo en GitHub.</li>
+            <li>Agrega tu script en la carpeta /scripts con un README.</li>
+            <li>Envía un Pull Request y espera revisión.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="download" class="view" style="display:none">
+        <h2 style="font-family:Orbitron,monospace">Descargas</h2>
+        <div class="card">
+          <p class="muted">Descarga el repositorio ZIP (placeholder). Reemplaza el enlace con tu GitHub real.</p>
+          <div style="display:flex;gap:8px">
+            <a class="btn primary" href="#" id="download-zip">Descargar ZIP</a>
+            <button class="btn" id="open-github">Abrir en GitHub</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="view" style="display:none">
+        <h2 style="font-family:Orbitron,monospace">Contacto</h2>
+        <div class="card">
+          <p class="muted">Reemplaza con tus redes reales para que la sección muestre enlaces válidos.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <a class="btn" href="#" id="contact-tiktok">TikTok</a>
+            <a class="btn" href="#" id="contact-instagram">Instagram</a>
+            <a class="btn" href="#" id="contact-discord">Discord</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="app-footer">© LOADRING — SPA · 2025</div>
+
+    </main>
+  </div>
+</div>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
